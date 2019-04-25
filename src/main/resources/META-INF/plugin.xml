@@ -1,0 +1,47 @@
+<idea-plugin>
+    <id>icheny.cn.CyTranslation</id>
+    <name>CyTranslation</name>
+    <vendor email="ausboyue@gmail.com" url="https://www.icheny.cn">icheny.cn</vendor>
+
+    <description><![CDATA[
+ <h1>Translation</h1>
+      <br/>
+      <p><b>This is a Chinese-English translate plugin for IDEA and Android Studio.</b></p>
+      <br/>
+      <p><b>Support:</b>
+          <ul>
+<!--            <li>Google translate.</li>-->
+            <li>Youdao translate.</li>
+            <li>Baidu translate.</li>
+            <li>JinShanCiBa translate.</li>
+          </ul>
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="$EditorTranslate" class="cn.icheny.ideaplugin.translation.action.EditorTranslateAction" text="Translate"
+                description="Translate the word what you selected.">
+            <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl Q"/>
+        </action>
+        <!--设定按钮位置-->
+        <group id="TranslationPopupMenu" text="Translation Popup Menu Actions">
+            <separator/>
+            <reference ref="$EditorTranslate"/>
+            <separator/>
+            <add-to-group group-id="BasicEditorPopupMenu" anchor="first"/>
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+            <add-to-group group-id="ConsoleEditorPopupMenu" anchor="first"/>
+            <add-to-group group-id="Diff.EditorPopupMenu" anchor="first"/>
+        </group>
+    </actions>
+</idea-plugin>

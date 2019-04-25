@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.intellij' version '0.4.8'
+}
+
+group 'icheny.cn'
+version '1.0.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    google()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile 'com.google.code.gson:gson:2.8.5'
+}
+
+// See https://github.com/JetBrains/gradle-intellij-plugin/
+intellij {
+    if (Boolean.valueOf(useLocalIdea)) {
+        localPath localIdeaPath
+    } else {
+        version ideaVersion
+    }
+}
+//patchPluginXml {
+//    changeNotes """
+//      Any bug you can issue here.<br>
+//      <em>most HTML tags may be used</em>"""
+//}
+//指定编译的编码
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+//tasks.withType(ProcessResources) {
+//    filesMatching('**/*.properties') {
+//        filter EscapeUnicode
+//    }
+//}
