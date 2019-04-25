@@ -25,6 +25,7 @@ intellij {
     } else {
         version ideaVersion
     }
+    updateSinceUntilBuild false
 }
 //patchPluginXml {
 //    changeNotes """
